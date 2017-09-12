@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define TAM 5
 
 typedef struct
@@ -13,16 +14,19 @@ typedef struct
 
 void mostrarPaciente(ePaciente);
 void mostrarTodosLosPacientes(ePaciente[], int);
-void cargarPacientes(listaPacientes[]);
+void cargarPacientes(ePaciente lista[], int);
+codeoPacientes(ePaciente lista[], int);
 
 int main()
 {
 
-    Paciente listaPacientes[TAM];
+    ePaciente listaPacientes[TAM];
     ePaciente paciente2;
     int i;
 
-     cargarPacientes(listaPacientes[]);
+     cargarPacientes(listaPacientes, TAM);
+
+   /* codeoPacientes(ePaciente lista, TAM);*/
 
 
     mostrarTodosLosPacientes(listaPacientes, TAM);
@@ -48,8 +52,8 @@ void mostrarPaciente(ePaciente paciente)
 {
       printf("%d--%s--%d--%f--%s\n", paciente.legajo,paciente.nombre, paciente.edad, paciente.peso, paciente.sintoma);
 }
-
-void cargarPacientes(listaPacientes[]int)
+/*
+void cargarPacientes(lista[]int TAM)
 {
     int i
 
@@ -72,4 +76,40 @@ void cargarPacientes(listaPacientes[]int)
         fflush(stdin);
         gets(listaPacientes[].sintoma);
     }
+}*/
+void cargarPacientes(ePaciente lista[],int tam)
+{
+    int i;
+
+    for(i=0; i<tam; i++)
+    {
+        printf("Ingrese legajo: ");
+        scanf("%d", &lista[i].legajo);
+
+        printf("Ingrese nombre: ");
+        fflush(stdin);
+        gets(lista[i].nombre);
+
+        printf("Ingrese edad: ");
+        scanf("%d", &lista[i].edad);
+
+        printf("Ingrese peso: ");
+        scanf("%f", &lista[i].peso);
+
+        printf("Ingrese sintoma: ");
+        fflush(stdin);
+        gets(lista[i].sintoma);
+    }
+
 }
+
+/*codeoPacientes(ePaciente lista[i], int TAM)
+{
+    int i;
+    for(i=0;i<TAM;i++)
+    {
+        printf("%d", &lista[i].legajo[123,150,14,56,45]);
+    }
+}*/
+
+
